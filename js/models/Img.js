@@ -128,6 +128,12 @@ Img.prototype =  {
 					$(document).triggerHandler("upload", that);
 					callback(that.status);
 				}
+				//为了方便在github.io上演示，添加了下面的else if代码，在本机测试的时候请删除
+				else if(xhr.status === 405){
+					that.status = that.statusCode[3];
+					$(document).triggerHandler("upload", that);
+					callback(that.status);
+				}
 				else {
 					that.status = that.statusCode[7];
 					$(document).triggerHandler("upload", that);
