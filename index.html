@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>A Simple Mobile Web</title>
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div id="selectFile">
+	<div class="fileBox">
+		<div class="fileBox_add"><input id="uploadInput" type="file" accept="image/*"></div>
+	</div>
+</div>
+
+<ul id="uploadList"></ul>
+
+<div id="showImg">
+	<div id="imgPreview">
+		<img class="loading" src="./img/loading.gif">
+		<img class="newImg">
+	</div>
+	<div id="imgInfo"></div>
+	<div id="imgOpt">
+		<a class="done">确定</a>
+		<a class="cancel">取消</a>
+	</div>
+</div>
+
+<script src="js/jquery-2.0.3.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/models/Img.js"></script>
+<script src="js/models/UploadList.js"></script>
+<script src="js/views/UploadListView.js"></script>
+<script src="js/views/AppView.js"></script>
+<script>
+$(function (){
+	//页面样式初始化
+	$("#imgPreview").height( $(window).height() - 45 );
+	$("#imgPreview .loading").css({"margin-top": ( $("#imgPreview").height() - 60 ) / 2 });
+
+	//main
+	AppView();
+});
+</script>
+</body>
+</html>
